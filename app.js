@@ -10,9 +10,11 @@ let express = require('express'),
     bodyParser = require('body-parser'),
     io = require('socket.io').listen(server);
 
-let router = require('./routes/guest')(express);
+let guest = require('./routes/guest')(express);
+let admin = require('./routes/admin')(express);
 
-app.use('/', router);
+app.use('/', guest);
+app.use('/', admin);
 
 server.listen(3000, () =>{
     console.log(`server is running at ${process.env.PORT}`);
