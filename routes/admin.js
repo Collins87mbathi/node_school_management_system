@@ -3,11 +3,27 @@ module.exports = (express) => {
 
     
 
-    route.get('/admin', (req,res) => {
+    route.get('/auth', (req,res) => {
         res.render('admin');
     });
 
-    route.get('/admin/auth/login', (req,res) => {
+    route.get('/auth/login', (req,res) => {
+        res.send({data:'this is login'});
+    });
+
+    route.post('/auth/login', (req,res) => {
+        res.send({data:'this is post login'});
+    });
+
+    route.get('/auth/reset/:id', (req,res) => {
+        res.send({data:'this is login'});
+    });
+
+    route.get('/course/add', (req,res) => {
+        res.send({data:'this is login'});
+    });
+
+    route.post('/course/add', (req,res) => {
         res.send({data:'this is login'});
     });
 
