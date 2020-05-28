@@ -8,10 +8,17 @@ let express = require('express'),
     path = require('path'),
     server = require('http').createServer(app),
     bodyParser = require('body-parser'),
+    hbs = require('hbs'),
     io = require('socket.io').listen(server);
 
 let guest = require('./routes/guest')(express);
 let admin = require('./routes/admin')(express);
+
+app.set('views', path.join(__dirname, 'views'));
+app.engine('html', require('hbs').__express);
+app.set('view engine', 'html');
+hbs.registerPartials(path.join(__dirname, 'views/partials'));
+
 
 app.use('/', guest);
 app.use('/', admin);

@@ -1,12 +1,10 @@
 module.exports = (express) => {
     let route = express.Router();
 
-    route.get('/admin', (req,res) =>{
-        res.send('Hello World');
-    });
+    
 
     route.get('/admin', (req,res) => {
-        res.send('hello admin');
+        res.render('admin');
     });
 
     route.get('/admin/auth/login', (req,res) => {
