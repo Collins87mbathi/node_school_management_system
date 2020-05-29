@@ -18,15 +18,11 @@ app.set('views', path.join(__dirname, 'views'));
 app.engine('html', require('hbs').__express);
 app.set('view engine', 'html');
 hbs.registerPartials(path.join(__dirname, 'views/partials'));
+app.use(express.static(path.join(__dirname, 'assets')));
 
 
 app.use('/', guest);
 app.use('/admin', admin);
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
 server.listen(3000, () =>{
     console.log(`server is running at ${process.env.PORT}`);

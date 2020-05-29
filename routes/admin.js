@@ -1,30 +1,24 @@
 module.exports = (express) => {
     let route = express.Router();
 
-    
-
     route.get('/auth', (req,res) => {
         res.render('admin');
     });
 
     route.get('/auth/login', (req,res) => {
-        res.send({data:'this is login'});
-    });
-
-    route.post('/auth/login', (req,res) => {
-        res.send({data:'this is post login'});
+        res.render('login');
     });
 
     route.get('/auth/reset/:id', (req,res) => {
-        res.send({data:'this is login'});
+        res.send({data:'id'});
     });
 
     route.get('/course/add', (req,res) => {
-        res.send({data:'this is login'});
+        res.send({data:'chat'});
     });
 
     route.post('/course/add', (req,res) => {
-        res.send({data:'this is login'});
+        res.send({data:'chat add'});
     });
 
     

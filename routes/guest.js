@@ -17,11 +17,7 @@ module.exports = (express) => {
         res.send('hello this is course cat');
     });
 
-    route.get('/')
-
-    route.get('/admin/auth/login', (req,res) => {
-        res.send({data:'this is login'});
-    });
+    route.get('/');
 
     return route;
 }
