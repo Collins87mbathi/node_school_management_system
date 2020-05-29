@@ -10,21 +10,24 @@
 
             <h3 class="h4 mb-5 text-center">Admin Login</h3>
 
-                <form>
+                <form action="/admin/auth/login" method="POST">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Email or Username</label>
-                        <input type="email" class="form-control loginMail" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                        <input type="email" class="form-control mb-1" id="loginMail" aria-describedby="emailHelp" placeholder="Enter email">
+                        <span class="errorLogin text-danger" style="display: none;">Please enter the email or username.</span>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        <input type="password" class="form-control mb-1" id="loginPwd" placeholder="Password">
+                        <span class="errorPwd text-danger" style="display: none;">Please enter the password</span>
                     </div>
                     <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <input type="checkbox" class="form-check-input" id="loginCheck">
                         <label class="form-check-label" for="exampleCheck1">Remember me</label>
                         <a href="#" data-toggle="modal" data-target="#forgotPassword" class="float-right">Password ?</a>
                     </div>
-                    <input type="button" class="btn mt-4 btn-secondary btn-block" name="submit" value="Login">
+                    <input type="button" class="btn mt-4 btn-secondary btn-block" id="loginBtn" name="submit" value="Login">
+
                 </form>
 
             </div>
@@ -60,11 +63,3 @@
     </div>
   </div>
 </div>
-
-<script>
-    $(document).ready(function(){
-        $('.loginMail').on('click', () => {
-            alert("hello world");
-        });
-    });
-</script>
