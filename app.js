@@ -24,8 +24,8 @@ app.use(express.static(path.join(__dirname, 'assets')));
 app.use('/', guest);
 app.use('/admin', admin);
 
-server.listen(3000, () =>{
-    console.log(`server is running at ${process.env.PORT}`);
+server.listen(3000, (req,res) =>{
+    console.log(res.data());
 });
 
 

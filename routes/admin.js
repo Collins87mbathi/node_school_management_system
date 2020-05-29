@@ -5,6 +5,10 @@ module.exports = (express) => {
         res.render('admin');
     });
 
+    route.get('/auth/login', (req,res) => {
+        res.render('login');
+    });
+
     route.post('/auth/login', (req,res) => {
         res.render('login');
     });
