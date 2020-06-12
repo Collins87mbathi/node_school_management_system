@@ -19,5 +19,6 @@ module.exports = (express) => {
 
     route.get('/');
 
+
     return route;
 }

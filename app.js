@@ -13,6 +13,52 @@ let express = require('express'),
     hbs = require('hbs'),
     io = require('socket.io').listen(server),
     url = require('url'); 
+    
+const client = require('mongodb').MongoClient;
+const mongoUrl = "mongodb://localhost:27017/edu";
+
+let mongoFix = { useUnifiedTopology: true };
+
+let makeCollection = (coleName) => {
+    client.connect(mongoUrl, mongoFix, (err, inst) => {
+        if(err){
+            console.log(err);
+        } else {
+            let dbo = inst.db('edu');
+            dbo.createCollection(coleName, (err, res) => {
+                if(err){
+                    console.log(err);
+                } else {
+                    console.log(`we are good to go`);
+                }
+            })
+        }
+    });
+}
+ 
+// makeCollection('contact');
+
+
+let insertData = (obj) => {
+    client.connect(mongoUrl, mongoFix, (err, inst) => {
+        if(err){
+            console.log("Something wrong", err);
+        } else {
+            let dbo = inst.db('edu');
+            dbo.collection('member').insertOne(obj, (err,res) => errorChecker(err, res));
+        }
+    })
+}
+
+
+
+let errorChecker = (err, inst) => {
+    if(err){
+        console.log("Something wrong", err);
+    } else {
+        console.log('Work Well', inst);
+    }
+} 
 
 let guest = require('./routes/guest')(express);
 let admin = require('./routes/admin')(express);

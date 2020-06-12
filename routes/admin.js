@@ -15,6 +15,15 @@ module.exports = (express) => {
         res.send(`this is email : ${mail} & this is password : ${password}`);
     });
 
+    route.get('/auth/regist', (req,res, next) => {
+        res.render('register');
+    })
+
+    route.post('/auth/regist', (req,res, next) => {
+       let body = req.body;
+       res.send(body);
+    })
+
     route.get('/auth/reset/:id', (req,res) => {
         let val = req.params.id;
         res.send(val);

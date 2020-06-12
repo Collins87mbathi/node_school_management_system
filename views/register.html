@@ -1,0 +1,104 @@
+{{> html_head}}
+{{> aside}}
+{{> header}}
+<div class="row">
+    <div class="col-lg-6 mb-4 mb-lg-0 float-left">
+        <div class="card ">
+            <div class="card-body">
+                  <form action="/admin/auth/regist" class="needs-validation" novalidate method="POST">
+                    <div class="form-row">
+                      <div class="col-md-6 mb-3">
+                        <label for="validationCustom01">First name</label>
+                        <input type="text" name="inst_fname" class="form-control" id="validationCustom01" placeholder="First name"  required>
+                        <small class="valid-feedback">
+                          Looks good!
+                        </small>
+                        <small class="invalid-feedback">
+                          Name can't be empty!
+                        </small>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label for="validationCustom02">Last name</label>
+                        <input type="text" name="inst_lname" class="form-control" id="validationCustom02" placeholder="Last name" required>
+                        <small class="valid-feedback">
+                          Looks good!
+                        </small>
+                        <small class="invalid-feedback">
+                          Name can't be empty!
+                        </small>
+                      </div>
+                      
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" name="inst_email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+                        <small id="emailHelp" class="invalid-feedback">Email address can't be empty</small>
+                        <small class="valid-feedback">
+                          Look good!
+                        </small>
+                      </div>
+                    <div class="form-group">
+                      <label for="exampleFormControlTextarea1">About</label>
+                      <textarea class="form-control" name="inst_about" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                      <small class="invalid-feedback">
+                          Please provide a valid Adress.
+                        </small>
+                    </div>  
+                    <div class="form-group">
+                      <label for="validationCustomUsername">Image</label>
+                      <input type="file" name="inst_image" class="form-control">                                            
+                    </div>
+                    <label></label>
+                    <div class="form-group col-md-12 ml-0 overflow-hidden">
+                      <div class="custom-control custom-radio col-md-3 float-left">
+                        <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
+                        <label class="custom-control-label" for="customControlValidation2">Private</label>
+                      </div>
+                      <div class="custom-control custom-radio mb-3 col-md-3 float-left">
+                        <input type="radio" class="custom-control-input" id="customControlValidation3" name="radio-stacked" required>
+                        <label class="custom-control-label" for="customControlValidation3">Public</label>
+                      </div>
+                       <div class="invalid-feedback">More example invalid feedback text</div>
+                    </div>
+
+
+
+
+                    <button class="btn btn-secondary" type="submit">Submit form</button>
+                  </form>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6 float-left">
+      <div class="card mb-4">
+        <div class="card-header">Time Tables</div>
+          <div class="card-header p-0">
+            <ul class="nav nav-tabs active-thik nav-primary border-0" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link px-4 py-3 rounded-0" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Courses</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link px-4 py-3 active rounded-0" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Students</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link px-4 py-3 rounded-0" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Instructors</a>
+              </li>
+            </ul>
+          </div>
+          <div class="card-body">
+
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade " id="home" role="tabpanel" aria-labelledby="home-tab">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum suscipit sem ex, sit amet efficitur tellus tristique eu. Proin eleifend, quam sit amet luctus bibendum, velit risus laoreet risus, eget egestas sapien lectus a massa. Aliquam id lacinia dui. Cras blandit mi nec mauris euismod, congue condimentum massa iaculis.</div>
+                <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                Nunc nisl sapien, lobortis a gravida mattis, eleifend sit amet ante. Maecenas eu nunc vitae magna posuere porta vitae eu massa. Vivamus molestie at libero eget aliquet. Ut diam felis, lacinia et nibh eget, molestie imperdiet neque. In hac habitasse platea dictumst. Maecenas tempus massa eget turpis maximus suscipit.</div>
+                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">Vivamus nibh lorem, vestibulum sagittis enim venenatis, commodo maximus sapien. Cras sed tellus sit amet purus dignissim rutrum. Suspendisse potenti. Nam eu porta turpis. In hac habitasse platea dictumst. Nulla volutpat auctor quam non suscipit. Cras convallis ac ex eu vehicula. Praesent consectetur eu erat porta venenatis. Nam congue dolor arcu. Aenean enim diam, efficitur sed arcu at, blandit aliquet massa. Aenean laoreet turpis et aliquam hendrerit. In sit amet tristique turpis.</div>
+              </div>
+
+          </div>
+      </div>
+  </div>
+
+</div>
+{{> footer}}
