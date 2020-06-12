@@ -1,3 +1,5 @@
+const bodyParser = require('body-parser');
+
 require('dotenv').config();
 let express = require('express'),
     app = express();
@@ -7,9 +9,10 @@ let express = require('express'),
     ExtractJwt = require('passport-jwt').ExtractJwt,
     path = require('path'),
     server = require('http').createServer(app),
-    bodyParser = require('body-parser'),
+    body = require('body-parser'),
     hbs = require('hbs'),
-    io = require('socket.io').listen(server);
+    io = require('socket.io').listen(server),
+    url = require('url'); 
 
 let guest = require('./routes/guest')(express);
 let admin = require('./routes/admin')(express);
@@ -19,13 +22,19 @@ app.engine('html', require('hbs').__express);
 app.set('view engine', 'html');
 hbs.registerPartials(path.join(__dirname, 'views/partials'));
 app.use(express.static(path.join(__dirname, 'assets')));
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
 
 app.use('/', guest);
 app.use('/admin', admin);
 
+app.post('/admin/auth/login', (req,res) => {
+    let email = req.body.email;
+    console.log(`${email}`);
+})
+
 server.listen(3000, (req,res) =>{
-    console.log(res.data());
+    console.log(`hhhh`);
 });
 
 
